@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>State</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+
+    class News extends React.Component {
+    constructor (props){
+    super(props);
+    this.state={totalEditCount: 0};
+    }
+    edit(){
+      alert("edit button clicked");
+      this.setState({
+      totalEditCount: this.state.totalEditCount +1
+      });
+    } 
+    delete(){
+      alert("delete button clicked");
+    }   
+  render() {
+  const props = this.props;
+    return(
+    <div>
+      <h1>{props.children}</h1>
+        <div calssName="action">
+        <button className="edit" onClick={()=>this.edit()}>Edit</button>
+        <button className="delete" onClick={this.delete}>Delete</button>
+        <p> Total edit clicked {this.state.totalEditCount}</p>
+         </div>
+    </div>
+    )
+  }
+}
+
+      ReactDOM.render(
+      <div>
+        <News>I play football.</News>
+        <News>I play Cricket.</News>
+        </div>,
+        document.getElementById('root')
+      );
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Class component</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+    function Helloworld(props){
+    return (
+    <div>
+      <h1>Hi {props.name}</h1>
+       <Welcome age={props.age}/>
+      </div>
+    );
+    }
+
+    class Welcome extends React.Component {
+  render() {
+  var props = this.props;
+    return(
+    <p>Age:{props.age}</p>
+    )
+  }
+}
+
+      ReactDOM.render(
+      <div>
+        <Helloworld name="Limon" age="24"/>
+        <Helloworld name="Raju" age="20"/>
+       
+       
+        </div>,
+        document.getElementById('root')
+      );
+
+    </script>
+  </body>
+</html>
